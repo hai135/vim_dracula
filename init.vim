@@ -32,14 +32,14 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim',           {'branch': 'release'}
 Plug 'mhinz/vim-signify'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-abolish'
 Plug 'Yggdroot/indentLine'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf',                { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'chrisbra/Colorizer'
@@ -80,7 +80,8 @@ augroup exe_code
         autocmd FileType python map <silent> <F9> :w<CR> :FloatermNew --autoclose=0 --position=topright python3 % <CR>
         autocmd FileType c map <silent> <F9> :w<CR> :FloatermNew --autoclose=0 --position=topright gcc % -o %< && ./%< <CR>
         autocmd FileType javascript map <silent> <F9> :w<CR> :FloatermNew --autoclose=0 --position=topright node % <CR>
-
+        "autocmd Filetype java map <silent> <F9> :cd %:p:h <CR> :! javac %:t<CR> :! java %:t:r<CR> :! rm *.class<CR>
+        autocmd Filetype java map <silent> <F9> :cd %:p:h <CR> :FloatermNew --autoclose=0 --position=topright javac % && java %:t:r <CR>
 augroup END
 
 """ config floaterm
@@ -350,7 +351,7 @@ map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 let mapleader=","
 nmap <Leadr>r :NERDTreeFocus<cr>R<c-w><c-p>e
-"nmap <F9> <C-w>s<C-w>j:terminal<CR>:set nonumber<CR><S-a>
+nmap <C-Left> <C-w>w
 nmap <leader>$s <C-w>s<C-w>j:terminal<CR>:set nonumber<CR><S-a>
 nmap <leader>$v <C-w>v<C-w>l:terminal<CR>:set nonumber<CR><S-a>
 nmap <leader>q :NERDTreeToggle<CR>
